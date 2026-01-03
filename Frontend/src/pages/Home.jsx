@@ -8,16 +8,15 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import BooksTable from '../components/home/BooksTable';
 import BooksCard from '../components/home/BooksCard';
- const API_URL = import.meta.env.VITE_API_URL;
+
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState('table');
-
+ const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     setLoading(true);
-    axios
-      .get('http://localhost:4000/books')
+    axios.get(`${API_URL}/books`);
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
