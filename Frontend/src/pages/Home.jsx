@@ -16,7 +16,7 @@ const Home = () => {
  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     setLoading(true);
-    axios.get(`${API_URL}/books`);
+    axios.get(`${API_URL}/books`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
